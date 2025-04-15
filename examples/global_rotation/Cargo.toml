@@ -1,0 +1,21 @@
+[package]
+name = "ground-detection-demo"
+version = "0.1.0"
+edition="2021"
+
+[dependencies]
+cgmath = "0.18.0"
+eframe = "0.26"
+three-d = { version = "0.18.2", features = ["egui-gui"] }
+three-d-asset = { version = "0.9", features = ["pcd", "http"] }
+
+
+[target.'cfg(not(target_arch = "wasm32"))'.dependencies]
+tokio = { version = "1.16", features = ["macros", "rt-multi-thread"] }
+
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+log = "0.4"
+wasm-bindgen = "0.2"
+wasm-bindgen-futures = "0.4"
+console_error_panic_hook = "0.1"
+console_log = "1"
